@@ -1,11 +1,21 @@
 <template>
   <div>
-
+<h1>My shop</h1>
+<div class="container">
+  <div v-for="cloth in clothes" :key="cloth.name">
+<h2>{{ cloth.name }}</h2>
+<h2>{{ cloth.price }}</h2>
+<h2>{{ cloth.inStock }}</h2>
+<h2>{{ cloth.brand }}</h2>
+<h2>{{ cloth.alt }}</h2>
+<button>Buy ME</button>
+  </div>
+</div>
   </div>
 </template>
 
 <script setup>
-const items =[
+const clothes =[
     {
         name: "Sponge bob cleats",
         price: 119.99,
@@ -164,6 +174,36 @@ const items =[
 ];
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+html, body, *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 62.5%; /* Normally 100% is 16px we want the size to be 10px so we do 62.5% */
+}
+.container{
+    font-size: 30px;
+    display: flex;
+    background-color: wheat;
+    justify-content: space-around;
+    width: 100vw;
+    flex-wrap: wrap;
+}
+.display-card{
+     width:22%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: space-around;
+}
+.display-img{
+    width: 100%;
+}
+.cart-section {
+    font-size: 35px;
+    justify-content: space-around;
+    text-align: center;
+    background-color: orange;
+}
 
 </style>
