@@ -174,6 +174,60 @@ const clothes =[
 },   
 ];
 
+
+const cartSection = document.createElement("div");
+cartSection.classList.add("cart-section");
+
+const cartTitle = document.createElement("h2");
+cartTitle.textContent = "Your Cart";
+
+const cartList = document.createElement("ul");
+cartList.id = "cart-items";
+
+const cartTotal = document.createElement("p");
+cartTotal.id = "cart-total";
+cartTotal.textContent = "Total: $0.00";
+
+cartSection.appendChild(cartTitle);
+cartSection.appendChild(cartList);
+cartSection.appendChild(cartTotal);
+
+document.body.appendChild(cartSection);
+const cart = [];
+
+function updateCartDisplay() {
+  const cartList = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
+
+  cartList.innerHTML = "";
+
+  let total = 0;
+
+  cart.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = `${item.name} — $${item.price.toFixed(2)}`;
+    cartList.appendChild(li);
+    total += item.price;
+  });
+
+  cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+}
+ function addToCart(event) {
+  const button = event.target;
+  const card = button.closest(".display-card");
+  const name = card.querySelector(".display-title").textContent;
+  const priceText = card.querySelector(".card-price").textContent.replace("$", "");
+  const price = parseFloat(priceText);
+
+  cart.push({ name, price });
+  updateCartDisplay();
+}
+
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("add-to-cart")) {
+    addToCart(event);
+  }
+});
 </script>
 
 <style scoped>
@@ -200,12 +254,6 @@ html, body, *{
 }
 .display-img{
     width: 100%;
-}
-.cart-section {
-    font-size: 35px;
-    justify-content: space-around;
-    text-align: center;
-    background-color: orange;
 }
 
 </style>
