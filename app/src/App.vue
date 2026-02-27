@@ -1,5 +1,4 @@
 <template>
-  <div>
 <h1>My shop</h1>
 <div class="container">
   <div v-for="cloth in clothes" :key="cloth.name">
@@ -9,7 +8,7 @@
 <h2>{{ cloth.brand }}</h2>
 <h2>{{ cloth.alt }}</h2>
 <img :src="cloth.img" alt="">
-<button>Buy ME</button>
+<button @click="addToCart(cloth)" -->>Buy ME</button>
   </div>
 </div>
 <div class="cart">
@@ -18,7 +17,7 @@
     {{ cloth.price }}
     </ClothesCart>
 </div>
-  </div>
+</div>
 </template>
 
 <script setup>
@@ -179,15 +178,15 @@ const clothes =[
   alt: "Gloves",
 },   
 ];
-
+/* function addToCart(clothes){
+  console.log(clothes)
+} */
   
 
 
 
-
-
 import ClothesCart from '@/component/ClothesCart.vue';
-import cart from '@/component/ClothesCart.vue'
+import cart from '@/component/cart.js';
 
 </script>
 

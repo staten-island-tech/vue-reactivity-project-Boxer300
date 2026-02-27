@@ -1,15 +1,16 @@
 <template>
     <div>
         <h1>{{ cloth.name }}</h1>
-        <h1>{{ cloth.price }}</h1>
+        <h2>{{ cloth.price }}</h2>
     </div>
+    <slot></slot>
 </template>
 
 <script setup>
 defineProps ({
     cloth:{
-    type:Object,
-    required:true
+    type: Object,
+    required: true,
 }
 })
 </script>
