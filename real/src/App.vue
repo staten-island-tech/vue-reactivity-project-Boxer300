@@ -4,11 +4,10 @@
   <div v-for="cloth in clothes" :key="cloth.name">
 <h2>{{ cloth.name }}</h2>
 <h2>{{ cloth.price }}</h2>
-<h2>{{ cloth.inStock }}</h2>
 <h2>{{ cloth.brand }}</h2>
 <h2>{{ cloth.alt }}</h2>
 <img :src="cloth.img" alt="">
-<button  -->>Buy ME</button>
+<button @click="">Buy ME</button>
   </div>
 </div>
 <div class="cart">
@@ -181,14 +180,14 @@ const clothes =[
 ];
 /* function addToCart(clothes){
   console.log(clothes)
-  cart.append(clothes)
+  cartSection.cart.append(clothes)
 } 
-   */
+    */
 
 
 
 import ClothesCart from '@/component/ClothesCart.vue';
-import cart from '@/component/cart.js';
+import {cartSection} from '@/stores/cart.js';
 
 </script>
 
