@@ -7,7 +7,7 @@
 <h2>{{ cloth.brand }}</h2>
 <h2>{{ cloth.alt }}</h2>
 <img :src="cloth.img" alt="">
-<button @click="">Buy ME</button>
+<button @click="addToCart(cloth)">Buy ME</button>
   </div>
 </div>
 <div class="cart">
@@ -17,11 +17,11 @@
     </ClothesCart>
 </div>
 
-
 </template>
 
 <script setup>
-const clothes =[
+import { ref } from 'vue'
+const clothes = ref([
     {
         name: "Sponge bob cleats",
         price: 119.99,
@@ -177,12 +177,11 @@ const clothes =[
   img: "/620-6206722_goal-keeping-glove-png-transparent-image-kipsta-goalkeeper-removebg-preview.png",
   alt: "Gloves",
 },   
-];
-/* function addToCart(clothes){
+]);
+ function addToCart(clothes){
   console.log(clothes)
-  cartSection.cart.append(clothes)
+  cartSection.cart.push(clothes)
 } 
-    */
 
 
 
