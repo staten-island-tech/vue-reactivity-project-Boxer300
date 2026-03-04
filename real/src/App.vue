@@ -11,7 +11,7 @@
   </div>
 </div>
 <div class="cart">
-  <ClothesCart v-for="cloth in clothes" :key="cloth.name" :cloth="cloth">
+  <ClothesCart v-for="cloth in cartSection" :key="cloth.name" :cloth="cloth">
     {{ cloth.name }}
     {{ cloth.price }}
     </ClothesCart>
@@ -21,6 +21,9 @@
 
 <script setup>
 import { ref } from 'vue'
+import ClothesCart from '@/component/ClothesCart.vue';
+import { cartSection } from '@/stores/cart.js';
+
 const clothes = ref([
     {
         name: "Sponge bob cleats",
@@ -178,15 +181,11 @@ const clothes = ref([
   alt: "Gloves",
 },   
 ]);
+
  function addToCart(clothes){
   console.log(clothes)
-  cartSection.cart.push(clothes)
+  cartSection.push(clothes)
 } 
-
-
-
-import ClothesCart from '@/component/ClothesCart.vue';
-import {cartSection} from '@/stores/cart.js';
 
 </script>
 
@@ -215,5 +214,7 @@ html, body, *{
 .display-img{
     width: 100%;
 }
-
+.cartSection{
+  align-items: center;
+}
 </style>
