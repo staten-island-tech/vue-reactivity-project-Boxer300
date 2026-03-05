@@ -1,7 +1,8 @@
 <template>
     <div>
-        <h1>{{ cloth.name }}</h1>
-        <h2>{{ cloth.price }}</h2>
+<!--         <h2>{{ cloth.name }}</h2>
+        <h2>{{ cloth.price }}</h2> 
+        <button>Remove</button> -->
     </div>
     <slot></slot>
 </template>

@@ -2,18 +2,21 @@
 <h1>My shop</h1>
 <div class="container">
   <div v-for="cloth in clothes" :key="cloth.name">
-<h2>{{ cloth.name }}</h2>
+ <h2>{{ cloth.name }}</h2>
 <h2>{{ cloth.price }}</h2>
 <h2>{{ cloth.brand }}</h2>
-<h2>{{ cloth.alt }}</h2>
+<h2>{{ cloth.alt }}</h2> 
 <img :src="cloth.img" alt="">
 <button @click="addToCart(cloth)">Buy ME</button>
   </div>
 </div>
 <div class="cart">
+       <h1>Cart</h1>
+       <h2>Total:</h2>
   <ClothesCart v-for="cloth in cartSection" :key="cloth.name" :cloth="cloth">
     {{ cloth.name }}
-    {{ cloth.price }}
+    {{ cloth.price }} 
+    <button @click="removeFromCart(cloth)">Remove</button>
     </ClothesCart>
 </div>
 
@@ -186,7 +189,9 @@ const clothes = ref([
   console.log(clothes)
   cartSection.push(clothes)
 } 
-
+ function removeFromCart(cloth) {
+ cartSection.splice(cartSection.indexOf(cloth), 1)
+ }
 </script>
 
 <style scoped>
@@ -214,7 +219,11 @@ html, body, *{
 .display-img{
     width: 100%;
 }
-.cartSection{
+.cart{
+  flex-direction: column;
   align-items: center;
+  font-size: 30px;
+  justify-content: center;
+  display: flex;
 }
 </style>
