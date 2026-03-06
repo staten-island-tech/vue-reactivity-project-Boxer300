@@ -192,6 +192,13 @@ const clothes = ref([
  function removeFromCart(cloth) {
  cartSection.splice(cartSection.indexOf(cloth), 1)
  }
+ function showTotal(cartSection) {
+ let total = ref(0)
+ cartSection.forEach(cloth => {
+  total = cloth.price;
+  
+ });
+ }
 </script>
 
 <style scoped>
